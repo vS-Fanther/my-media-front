@@ -3,7 +3,7 @@ import App from "@/App.vue";
 import components from "@/components/UI"
 import router from "@/components/router/router";
 import '@fortawesome/fontawesome-free/css/all.css';
-
+import store from '@/store';
 
 const app = createApp(App);
 
@@ -12,5 +12,6 @@ components.forEach(component => {
 });
 
 app
+    .use(store)
     .use(router)
     .mount('#app')

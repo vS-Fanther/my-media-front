@@ -9,23 +9,55 @@
     <div class="navbar">
       <nav>
         <ul class="nav-list">
-          <li><router-link to="/users">Юзеры</router-link></li>
-          <li><router-link to="/favorites">Избранное</router-link></li>
-          <li><router-link to="/last-comments">Последние</router-link></li>
+          <li>
+            <router-link to="/users">Юзеры</router-link>
+          </li>
+          <li>
+            <router-link to="/favorites">Избранное</router-link>
+          </li>
+          <li>
+            <router-link to="/last-comments">Последние</router-link>
+          </li>
         </ul>
       </nav>
     </div>
 
     <div class="login">
-      <router-link to="/login" style="color: white">
-        <i class="fas fa-user"/>
-      </router-link>
+      <my-dialog v-model:show="dialogVisible">
+        <ChoseAction @action="disableDialog"/>
+      </my-dialog>
+      <i @click="showDialog" style="color: white" class="fas fa-user"/>
     </div>
   </div>
 </template>
 
-<script setup lang="ts">
+<script>
+import ChoseAction from "@/components/common/header/auth/ChoseAction.vue";
 
+export default {
+  data() {
+    return {
+      dialogVisible: false,
+    }
+  },
+  components: {
+    ChoseAction,
+  },
+  methods: {
+    showDialog() {
+      this.dialogVisible = true;
+    },
+    disableDialog() {
+      this.dialogVisible = false;
+    },
+    login() {
+      this.dialogVisible = false;
+    },
+    register() {
+      this.dialogVisible = false;
+    }
+  }
+}
 </script>
 
 <style scoped>
