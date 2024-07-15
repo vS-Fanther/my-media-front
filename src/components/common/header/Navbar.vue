@@ -1,53 +1,78 @@
-<script setup>
-
-</script>
-
 <template>
   <div class="header">
-    <h1>asd</h1>
+    <div class="home">
+      <router-link to="/" style="color: white">
+        <i class="fas fa-home"/>
+      </router-link>
+    </div>
+
+    <div class="navbar">
+      <nav>
+        <ul class="nav-list">
+          <li><router-link to="/users">Юзеры</router-link></li>
+          <li><router-link to="/favorites">Избранное</router-link></li>
+          <li><router-link to="/last-comments">Последние</router-link></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="login">
+      <router-link to="/login" style="color: white">
+        <i class="fas fa-user"/>
+      </router-link>
+    </div>
   </div>
 </template>
 
+<script setup lang="ts">
+
+</script>
+
 <style scoped>
 .header {
-  height: 6vh;
+  width: 100%;
+  background: teal;
+  padding: 10px 20px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  background-color: #5f9ea0;
-  color: blanchedalmond;
-  font-weight: 600;
+}
 
-  .header__nav {
-    margin: 0 10px;
-    height: 100%;
-  }
+.home,
+.login {
+  flex: 0 1 auto;
+}
 
-  .header__nav ul {
-    display: flex;
-    justify-self: center;
-    list-style: none;
-    margin: 0;
-    height: 100%;
-  }
+.navbar {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
 
-  .header__nav__item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 15px;
-  }
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
 
-  .home {
-    position: relative;
-    width: 100%;
-    bottom: 0;
-  }
+.nav-list li {
+  margin: 0;
+}
 
-  .auth__btn__container {
-    display: flex;
-    justify-self: flex-end;
-    height: 100%;
-  }
+.nav-list a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.nav-list a:hover {
+  text-decoration: underline;
+}
+
+.fa-home,
+.fa-user {
+  font-size: 2rem; /* Увеличение размера иконок */
 }
 </style>

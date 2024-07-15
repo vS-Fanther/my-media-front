@@ -25,11 +25,5 @@ export default {
 .app {
   padding: 20px;
 }
-.app__btns {
-  margin: 15px 0;
-  display: flex;
-  justify-content: space-between;
-}
-
 
 </style>

@@ -16,7 +16,7 @@ export default {
   name: 'MySelect',
   props: {
     modelValue: {
-      type: [String, Number, Boolean], // Уточнить типы данных, если необходимо
+      type: [String, Number, Boolean],
       default: ''
     },
     options: {
@@ -33,5 +33,5 @@ export default {
 </script>
 
 <style scoped>
-/* Ваши стили */
+
 </style>

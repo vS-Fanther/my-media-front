@@ -11,8 +11,8 @@
 <style scoped>
 .footer {
   display: block;
-  padding: 20px;
-  background: cadetblue;
+  padding: 10px;
+  background: teal;
   color: blanchedalmond;
   width: 100%;
   text-align: center;
