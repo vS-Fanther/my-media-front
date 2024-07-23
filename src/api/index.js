@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useCookies } from "vue3-cookies";
+import store from "@/store";
 
 const API = axios.create({
     baseURL: 'http://localhost:8000/api',
@@ -8,7 +9,7 @@ const API = axios.create({
 const { cookies } = useCookies();
 
 API.interceptors.request.use((config) => {
-    const token = cookies.get('auth-token');
+    const token = store.getters.getToken;
 
     if (config.headers) {
         config.headers['Content-Type'] = 'application/json';

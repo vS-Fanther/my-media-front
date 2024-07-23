@@ -20,8 +20,6 @@
 </template>
 
 <script>
-import API from "@/api";
-import {mapActions, useStore} from "vuex";
 import store from "@/store";
 
 export default {

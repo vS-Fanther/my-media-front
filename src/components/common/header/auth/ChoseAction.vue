@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent class="view">
     <h4>{{ text }}</h4>
-    <div class="btns">
+    <div class="btns" v-if="!store.getters.isAuthenticated">
       <my-button
           @click="loginForm"
       >Логин
@@ -10,6 +10,12 @@
           @click="registerForm"
           v-if="text !== 'Аккаунт создан успешно'"
       >Регистрация
+      </my-button>
+    </div>
+    <div v-else>
+      <my-button
+          @click="logout"
+      >Выйти ?
       </my-button>
     </div>
     <my-dialog v-model:show="showLoginForm">
@@ -24,8 +30,14 @@
 <script>
 import Login from "@/components/common/header/auth/Login.vue";
 import Register from "@/components/common/header/auth/Register.vue";
+import store from "@/store";
 
 export default {
+  computed: {
+    store() {
+      return store
+    }
+  },
   components: {Register, Login},
   data() {
     return {
@@ -48,7 +60,13 @@ export default {
     loginUser() {
       this.$emit('action');
       this.showLoginForm = false;
-    }
+    },
+    async logout() {
+      console.log(store.getters.getUserId)
+      await store.dispatch('logout')
+      console.log(store.getters.getUserId)
+      this.text = 'Успешно';
+    },
   }
 }
 </script>

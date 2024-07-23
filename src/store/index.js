@@ -37,6 +37,17 @@ const store = createStore({
       } catch (e) {
         console.log(e);
       }
+    },
+    async logout({commit}) {
+      try {
+        const response = await API.post('user/logout', {
+          id: store.getters.getUserId
+        });
+        commit('setToken', null);
+        commit('setUserId', null);
+      } catch (e) {
+        console.log(e);
+      }
     }
   },
 })
